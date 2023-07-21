@@ -1,0 +1,62 @@
+<h2 class="header">Recipe List</h2>
+
+<div class="item-container">
+    <div class="item" *ngFor="let recipe of recipes">
+      <button class="button-history-update" (click)="getHistory(recipe.history)">
+        show history
+      </button>
+
+      <button class="item-button" (click)="toInfoPage(recipe.id)">
+        <p class="item-header">{{recipe.name}}</p>
+        <p class="item-date">{{recipe.dateOfCreation}}</p>
+        <p class="item-info">{{recipe.info}}</p>
+      </button>
+
+      <button class="button-history-update" (click)="setUpdateRecipe(recipe)">
+        update
+      </button>
+    </div>
+</div>
+
+<div class="menu-button">
+  <button (click)="showAddNewRecipeBlock()" class="menu-button-item">
+    Add New Recipe
+  </button>
+</div>
+
+<div class="message">
+  <p class="message-p">{{messageToUser}}</p>
+</div>
+
+<form *ngIf="showAddNewRipe" (ngSubmit)="addRecipeRoot()" class="my-form">
+  <h2>You can add a new root recipe</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="postRecipeRoot.name" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="info">Info:</label>
+    <input type="text" id="info" [(ngModel)]="postRecipeRoot.info" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button type="submit" class="submit-button">add!</button>
+</form>
+
+<form *ngIf="showUpdateNewRipe" (ngSubmit)="goUpdate()" class="my-form">
+  <h2>You can update a root recipe</h2>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name1" [(ngModel)]="updateRecipeRoot.name" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="info">Info:</label>
+    <input type="text" id="info1" [(ngModel)]="updateRecipeRoot.info" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button type="submit" class="submit-button">update!</button>
+</form>
+
+<div class="item" *ngFor="let recipe of historyRecipes">
+    <p class="item-header">{{recipe.name}}</p>
+    <p class="item-date">{{recipe.dateOfCreation}}</p>
+    <p class="item-info">{{recipe.info}}</p>
+    <p class="item-info">historyId: {{recipe.history}}</p>
+</div>

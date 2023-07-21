@@ -1,0 +1,115 @@
+.header {
+  text-align: center;
+  font-size: 35px;
+}
+
+.item-container {
+  background-color: pink;
+}
+
+.item {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.button-history-update {
+  background-color: blanchedalmond;
+  border: black 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 2s ease, transform 1s ease;
+}
+
+.button-history-update:hover{
+  background-color: pink;
+  transform: scale(1.2);
+}
+
+.item-button {
+  background-color: blanchedalmond;
+  width: 75%;
+  border: black 1px solid;
+  border-radius: 10px;
+  text-align: left;
+  transition: background-color 2s ease, transform 1s ease;
+}
+
+.item-button:hover {
+  background-color: pink;
+  transform: scale(1.2);
+}
+
+.item-header {
+  font-size: 30px;
+  margin: 3px;
+}
+
+.item-date {
+  font-size: 12px;
+  margin: 2px;
+}
+
+.item-info {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-button-item {
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: pink;
+  color: black;
+  transition: background-color 2s ease, transform 1s ease;
+}
+
+.menu-button-item:hover {
+  background-color: blanchedalmond;
+  transform: scale(1.2);
+}
+
+.message {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.message-p {
+  font-size: 20px;
+}
+
+.my-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.submit-button {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
