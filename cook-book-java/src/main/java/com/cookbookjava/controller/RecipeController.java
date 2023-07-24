@@ -24,39 +24,39 @@ public class RecipeController {
     @GetMapping
     public List<RecipeResponseDto> getAllRecipes() {
         return recipeService.getAllRecipes().stream()
-                .map(recipeMapper::toDto)
+                .map(recipeMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @PostMapping
     public RecipeResponseDto createRecipe(@RequestBody RecipeRequestDto dto) {
-        return recipeMapper.toDto(recipeService.createRecipe(recipeMapper.toModel(dto)));
+        return recipeMapper.mapToDto(recipeService.createRecipe(recipeMapper.mapToModel(dto)));
     }
 
     @PostMapping("/{parentId}/children")
     public RecipeResponseDto createChildRecipe(@PathVariable Long parentId,
                                                @RequestBody RecipeRequestDto childDto) {
-        return recipeMapper.toDto(
-                recipeService.createChildRecipe(parentId, recipeMapper.toModel(childDto)));
+        return recipeMapper.mapToDto(
+                recipeService.createChildRecipe(parentId, recipeMapper.mapToModel(childDto)));
     }
 
     @PostMapping("/update/{parentId}")
     public void update(@PathVariable Long parentId,
                        @RequestBody RecipeRequestDto dto) {
-        recipeService.update(recipeMapper.toModel(dto), parentId);
+        recipeService.update(recipeMapper.mapToModel(dto), parentId);
     }
 
     @GetMapping("/child/{id}")
     public List<RecipeResponseDto> findChildrenByParentId(@PathVariable Long id) {
         return recipeService.findChildrenByParentId(id).stream()
-                .map(recipeMapper::toDto)
+                .map(recipeMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/history/{parentId}")
     public List<RecipeResponseDto> getHistoryBranch(@PathVariable Long parentId) {
         return recipeService.getHistory(parentId).stream()
-                .map(recipeMapper::toDto)
+                .map(recipeMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 }

@@ -58,6 +58,7 @@
 }
 
 .menu-button {
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-around;
 }
@@ -113,3 +114,18 @@ input {
   border-radius: 0.2rem;
   cursor: pointer;
 }
+
+.recipe-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.name-column, .date-of-creation-column, .info-column {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.name-column, .date-of-creation-column, .info-column {
+  text-align: center;
+}
+

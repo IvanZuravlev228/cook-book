@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
       file: /db/changelog/changes/create-recipe-table.sql
+  - include:
+      file: /db/changelog/changes/init-parent.sql
+  - include:
+      file: /db/changelog/changes/init-child.sql

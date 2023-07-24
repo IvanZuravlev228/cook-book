@@ -4,5 +4,5 @@ export class RecipeResponse {
   dateOfCreation: Date = new Date();
   info: string = "";
   parentId: number = 0;
-  history: number = 0;
+  previousId: number = 0;
 }

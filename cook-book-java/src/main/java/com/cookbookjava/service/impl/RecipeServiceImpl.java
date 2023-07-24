@@ -43,7 +43,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public void update(Recipe newRecipe, Long oldRecipeId) {
-        newRecipe.setHistory(oldRecipeId);
+        newRecipe.setPreviousId(oldRecipeId);
         Recipe recipeNew = createRecipe(newRecipe);
         Recipe recipeOld = getRecipeById(oldRecipeId);
         recipeOld.setChanged(true);
@@ -59,12 +59,12 @@ public class RecipeServiceImpl implements RecipeService {
     public List<Recipe> getHistory(Long parentId) {
         List<Recipe> result = new ArrayList<>();
         Recipe parent = getRecipeById(parentId);
-        Long historyId = parent.getHistory();
+        Long previousId = parent.getPreviousId();
         result.add(parent);
-        while (historyId != null) {
-            Recipe historyRecipe = getRecipeById(historyId);
-            historyId = historyRecipe.getHistory();
-            result.add(historyRecipe);
+        while (previousId != null) {
+            Recipe previousRecipe = getRecipeById(previousId);
+            previousId = previousRecipe.getPreviousId();
+            result.add(previousRecipe);
         }
         return result;
     }
