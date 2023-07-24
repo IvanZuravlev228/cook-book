@@ -8,8 +8,8 @@
 <h3>How to run</h3>
 <p>For run this project you must have a Docker!</p>
 
-<p>1. Run this command in cook-book-java package: mvn package</p>
+<p>1. Run this command in cook-book-java package: <code>mvn package</code></p>
 
-<p>2. Run this command in root package: docker-compose up</p>
+<p>2. Run this command in root package: <code>docker-compose up</code></p>
 
-<p>3. After that you can use project with UI</p>
+<p>3. Open a browser and navigate to <code>localhost:4042</code></p>
