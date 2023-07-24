@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RecipeMapper implements
         RequestDtoMapper<RecipeRequestDto, Recipe>,
-        ResponseDtoMapper<RecipeResponseDto, Recipe>{
+        ResponseDtoMapper<RecipeResponseDto, Recipe> {
     public Recipe mapToModel(RecipeRequestDto dto) {
         Recipe recipe = new Recipe();
         recipe.setName(dto.getName());
