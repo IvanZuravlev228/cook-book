@@ -1,7 +1,7 @@
 <div class="item-container">
   <button (click)="reload()">reload</button>
   <div class="item" *ngFor="let child of children">
-    <button class="button-history-update" (click)="getHistory(child.history)">
+    <button class="button-history-update" (click)="getHistory(child.previousId)">
       show history
     </button>
 
@@ -53,9 +53,19 @@
   <button type="submit" class="submit-button">update</button>
 </form>
 
-
-<div class="item" *ngFor="let recipe of historyRecipes">
-  <p class="item-header">{{recipe.name}}</p>
-  <p class="item-date">{{recipe.dateOfCreation}}</p>
-  <p class="item-info">{{recipe.info}}</p>
-</div>
+<table *ngIf="showHistory" class="recipe-table">
+  <thead>
+  <tr>
+    <th class="name-column">Name</th>
+    <th class="date-of-creation-column">Date of Creation</th>
+    <th class="info-column">Info</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let recipe of historyRecipes">
+    <td class="name-column">{{ recipe.name }}</td>
+    <td class="date-of-creation-column">{{ recipe.dateOfCreation }}</td>
+    <td class="info-column">{{ recipe.info }}</td>
+  </tr>
+  </tbody>
+</table>

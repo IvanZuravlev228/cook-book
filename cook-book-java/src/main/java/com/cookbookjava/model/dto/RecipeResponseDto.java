@@ -12,5 +12,5 @@ public class RecipeResponseDto {
     private LocalDate dateOfCreation;
     private String info;
     private Long parentId;
-    private Long history;
+    private Long previousId;
 }

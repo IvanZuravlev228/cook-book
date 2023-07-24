@@ -1,6 +1,7 @@
 package com.cookbookjava.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,10 +20,10 @@ public class Recipe {
     @EqualsAndHashCode.Exclude
     private Long id;
     private String name;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Recipe parent;
     private LocalDate dateOfCreation;
     private String info;
-    private Long history;
+    private Long previousId;
     private boolean changed;
 }

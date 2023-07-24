@@ -7,8 +7,10 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RecipeMapper {
-    public Recipe toModel(RecipeRequestDto dto) {
+public class RecipeMapper implements
+        RequestDtoMapper<RecipeRequestDto, Recipe>,
+        ResponseDtoMapper<RecipeResponseDto, Recipe>{
+    public Recipe mapToModel(RecipeRequestDto dto) {
         Recipe recipe = new Recipe();
         recipe.setName(dto.getName());
         recipe.setInfo(dto.getInfo());
@@ -21,13 +23,14 @@ public class RecipeMapper {
         return recipe;
     }
 
-    public RecipeResponseDto toDto(Recipe recipe) {
+    @Override
+    public RecipeResponseDto mapToDto(Recipe recipe) {
         RecipeResponseDto dto = new RecipeResponseDto();
         dto.setId(recipe.getId());
         dto.setName(recipe.getName());
         dto.setInfo(recipe.getInfo());
         dto.setDateOfCreation(recipe.getDateOfCreation());
-        dto.setHistory(recipe.getHistory());
+        dto.setPreviousId(recipe.getPreviousId());
         if (recipe.getParent() != null) {
             dto.setParentId(recipe.getParent().getId());
         }

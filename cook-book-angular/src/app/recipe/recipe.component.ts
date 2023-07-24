@@ -10,7 +10,7 @@ import {RecipeRequestRoot} from "../model/RecipeRequestRoot";
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
-export class RecipeComponent implements OnInit{
+export class RecipeComponent implements OnInit {
   recipes: RecipeResponse[] = [];
   historyRecipes: RecipeResponse[] = [];
   postRecipeRoot: RecipeRequestRoot = new RecipeRequestRoot();
@@ -18,6 +18,7 @@ export class RecipeComponent implements OnInit{
   messageToUser = "";
   showAddNewRipe: boolean = false;
   showUpdateNewRipe: boolean = false;
+  showHistory: boolean = false;
 
   constructor(private http: HttpClient,
               private router: Router) {
@@ -90,6 +91,7 @@ export class RecipeComponent implements OnInit{
     if (parentId == null) {
       return;
     }
+    this.showHistory = !this.showHistory;
     this.http.get<RecipeResponse[]>(environment.backendURL + "/recipes/history/" + parentId).subscribe({
       next: ((response: RecipeResponse[]) => {
         this.historyRecipes = response;

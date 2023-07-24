@@ -22,6 +22,7 @@ export class InfoComponent implements OnInit{
   messageToUser = "";
   showAddNewRipe: boolean = false;
   showUpdateNewRipe: boolean = false;
+  showHistory: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -63,6 +64,7 @@ export class InfoComponent implements OnInit{
       this.messageToUser = "This recipe don't have a history";
       return;
     }
+    this.showHistory = !this.showHistory;
     this.http.get<RecipeResponse[]>(environment.backendURL + "/recipes/history/" + parentId).subscribe({
       next: ((response: RecipeResponse[]) => {
         this.historyRecipes = response;
@@ -103,6 +105,7 @@ export class InfoComponent implements OnInit{
     if (this.checkInput(this.updateRecipe)) {
       return;
     }
+    this.showHistory = false;
     const body = JSON.stringify(this.updateRecipe);
     this.http.post<any>(environment.backendURL + "/recipes/update/" + this.updateRecipe.id, body, {
       headers: {
