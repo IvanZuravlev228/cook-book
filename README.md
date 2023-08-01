@@ -12,4 +12,4 @@
 
 <p>2. Run this command in root package: <code>docker-compose up</code></p>
 
-<p>3. Open a browser and navigate to <code>localhost:4042</code></p>
+<p>3. Open a browser and navigate to <code>localhost:4202</code></p>
