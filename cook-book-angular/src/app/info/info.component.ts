@@ -37,6 +37,7 @@ export class InfoComponent implements OnInit{
   }
 
   showChildRecipe(id: number) {
+    this.showHistory = false;
     this.router.navigate(['/info'], {queryParams: {parentId: id}});
     this.showAllChildren(id);
   }
