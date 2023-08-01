@@ -1,9 +1,10 @@
 package com.cookbookjava.controller;
 
+import com.cookbookjava.model.Recipe;
 import com.cookbookjava.model.dto.RecipeRequestDto;
 import com.cookbookjava.model.dto.RecipeResponseDto;
 import com.cookbookjava.service.RecipeService;
-import com.cookbookjava.service.mapper.RecipeMapper;
+import com.cookbookjava.service.mapper.RequestResponseDtoMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/recipes")
 public class RecipeController {
     private final RecipeService recipeService;
-    private final RecipeMapper recipeMapper;
+    private final RequestResponseDtoMapper
+            <RecipeRequestDto, RecipeResponseDto, Recipe> recipeMapper;
 
     @GetMapping
     public List<RecipeResponseDto> getAllRecipes() {

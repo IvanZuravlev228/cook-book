@@ -21,6 +21,8 @@ public class Recipe {
     private Long id;
     private String name;
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Recipe parent;
     private LocalDate dateOfCreation;
     private String info;
